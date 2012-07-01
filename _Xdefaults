@@ -1,0 +1,58 @@
+#######
+# URxvt
+
+URxvt.perl-lib: /home/derp/urxvt-perls/perl
+# Add url handler
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1
+
+URxvt.urlLauncher:     firefox
+URxvt.underlineURLs:   true
+URxvt.keysym.M-u:      perl:url-select:select_next
+
+URxvt*background: #1b1d1e
+URxvt*foreground: #d0d0d0
+URxvt*cursorColor: #d0d0d0
+
+URxvt*color0: #101010
+URxvt*color1: #960050
+URxvt*color2: #66aa11
+URxvt*color3: #c47f2c
+URxvt*color4: #30309b
+URxvt*color5: #7e40a5
+URxvt*color6: #3579a8
+URxvt*color7: #9999aa
+URxvt*color8: #465457
+URxvt*color9: #ff0090
+URxvt*color10: #80ff00
+URxvt*color11: #ffba68
+URxvt*color12: #66d9ef
+URxvt*color13: #bb88dd
+URxvt*color14: #4eb4fa
+URxvt*color15: #d0d0d0
+! URxvt-specific stuff
+
+URxvt*scrollBar: false
+URxvt*scrollBar_right: true
+URxvt*scrollstyle: plain
+URxvt*scrollColor: #000000
+URxvt*scrollWithBuffer: false
+URxvt*scrollTtyOutput: true
+
+URxvt*pointerBlank: true
+URxvt.underlineURLs: true
+URxvt.matcher.button: 1
+
+URxvt.tabbed.tabbar-fg: 0
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.tab-fg: 0
+
+!URxvt*meta8:True
+!
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hitstyle: hintslight
