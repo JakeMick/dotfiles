@@ -85,6 +85,7 @@ set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set guifont=Inconsolata\ Medium\ 13
+set guioptions=
 " don't bell or blink
 set noerrorbells
 set vb t_vb=
