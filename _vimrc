@@ -47,6 +47,7 @@ map <c-h> <c-w>h
 "  happen as if in command mode )
 imap <C-W> <C-O><C-W>
 
+
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
@@ -84,7 +85,7 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
-set guifont=Inconsolata\ Medium\ 13
+set guifont=Inconsolata\ Medium\ 10
 set guioptions=
 " don't bell or blink
 set noerrorbells
@@ -170,7 +171,7 @@ set incsearch               " Incrementally search while typing a /regex
 if has("gui_running")
     colorscheme molokai
 else
-    colorscheme elflord
+    colorscheme molokai
 endif
 
 " Paste from clipboard
