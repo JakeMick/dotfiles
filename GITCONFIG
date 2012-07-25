@@ -1,0 +1,7 @@
+[user]
+    name = JakeMick
+    email = jam7w2@mail.missouri.edu
+[core]
+    editor = vim
+[alias]
+    pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
