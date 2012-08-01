@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/srv/essay/ASAP-AES/Evaluation_Metrics/Matlab-Octave'
-let g:netrw_dirhist_2='/usr/share/xfce4/backdrops/linuxmint'
-let g:netrw_dirhist_3='/home/rasputin/dotfiles/_vim/colors'
-let g:netrw_dirhist_4='/srv/workstuff/git_root/pycoevolve/toy_data'
-let g:netrw_dirhist_5='/home/derp/pylove/sage-4.8/local/lib'
-let g:netrw_dirhist_6='/home/derp/.ipython/profile_default'
-let g:netrw_dirhist_7='/home/derp/scripts'
-let g:netrw_dirhist_8='/home/derp/.xmonad'
-let g:netrw_dirhist_9='/srv/temp/kaggle/diabetes/code'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/srv/temp/gzk/gzk/static'
