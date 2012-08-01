@@ -28,9 +28,20 @@ imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
 " jsbeautify's configuration
-let g:jsbeautify = {'indent_size': 4, 'indent_char': '\t'}
+let g:jsbeautify = {'indent_size': 4, 'indent_char': ' '}
 let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
 let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
+" If you bin name for node is nodejs
+let g:jsbeautify_engine = "node"
+map <leader>e :call JsBeautify()
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+
 
 " Run django tests
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
