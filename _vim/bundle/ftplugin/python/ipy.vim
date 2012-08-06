@@ -297,7 +297,7 @@ def update_subchannel_msgs(debug=False, force=False):
             vim.command("imap <buffer> <c-Enter> <esc>dd:python run_command('''<C-r>\"''')<CR>pkddA")
             # ctrl-C gets sent to the IPython process as a signal on POSIX
             vim.command("map <buffer>  :IPythonInterrupt<cr>")
-
+    
     #syntax highlighting for python prompt
     # QtConsole In[] is blue, but I prefer the oldschool green
     # since it makes the vim-ipython 'shell' look like the holidays!
@@ -357,7 +357,7 @@ def update_subchannel_msgs(debug=False, force=False):
     if not startedin_vimipython:
         vim.command('normal p') # go back to where you were
     return update_occured
-
+    
 def get_child_msg(msg_id):
     # XXX: message handling should be split into its own process in the future
     while True:
@@ -369,7 +369,7 @@ def get_child_msg(msg_id):
             #got a message, but not the one we were looking for
             echo('skipping a message on shell_channel','WarningMsg')
     return m
-
+            
 def print_prompt(prompt,msg_id=None):
     """Print In[] or In[42] style messages"""
     global show_execution_count
