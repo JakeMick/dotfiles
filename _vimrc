@@ -231,7 +231,8 @@ let g:acp_completeoptPreview=1
 " ============================================================
 " Mako/HTML
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
-autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal ft=htmljinja
 
 " Python
 "au BufRead *.py compiler nose
