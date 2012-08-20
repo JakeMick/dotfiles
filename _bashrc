@@ -10,6 +10,9 @@ fi
 
 xset b off
 
+#source ~/pylove/herp/bin/activate
+source /srv/temp/GZK/pyenv/bin/activate
+
 trap "rm ~/.bash_history" 0
 # user defined alias
 alias ipython='ipython --colors=Linux'
@@ -29,7 +32,8 @@ alias cdan='cd *'
 alias ipy='nohup ipython qtconsole --pylab=inline  --colors=linux &'
 alias pdbed='java -jar /home/derp/pylove/PDB_Editor_FIX090203.jar'
 alias wes='wesnoth -r 1920x1080'
-
+alias rpyc='rm *.pyc'
+#alias actsalsa='source ~/salsa/bin/activate'
 #alias pypy_easy_install='/srv/pypy/pypy-1.8/bin/easy_install'
 #alias pypy='/srv/pypy/pypy-1.8/bin/pypy'
 
@@ -39,8 +43,21 @@ alias addalias='vim ~/.bashrc'
 export FREEMOL=/srv/workstuff/pca/freemol-trunk/FREEMOL
 export OPENBLAS_NUM_THREADS=8
 #export PATH=~/pylove/epd-7.3-1-rh5-x86_64/bin:$PATH
-export PATH=~/.cabal/bin:~/.xmonad/bin:~/pylove/herp/bin:/usr/local/cuda/bin:$PATH
+export PATH=~/.cabal/bin:~/.xmonad/bin:/usr/local/cuda/bin:$PATH
 export ATLAS=None
 export LAPACK=/usr/lib/openblas-base/libopenblas.a
 export BLAS=/usr/lib/openblas-base/libopenblas.a
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib
+
+function dsm() {
+    export PYTHONPATH=$PYTHONPATH:$PWD/..
+    export PYTHONPATH=$PYTHONPATH:$PWD
+    if [ -z "$1" ]; then
+        x=${PWD/\/[^\/]*\/}
+        export DJANGO_SETTINGS_MODULE=$x.settings
+    else
+        export DJANGO_SETTINGS_MODULE=$1
+    fi
+    echo "DJANGO_SETTINGS_MODULE set to $DJANGO_SETTINGS_MODULE"
+}
+
