@@ -27,7 +27,7 @@ myDefaultGaps = [(15,10,10,10)]
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "/usr/bin/urxvt -fn 'xft:Ubuntu Mono:pixelsize=16'"
+myTerminal = "/usr/bin/gnome-terminal"
 
 
 ------------------------------------------------------------------------
