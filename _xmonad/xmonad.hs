@@ -245,7 +245,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      sendMessage (IncMasterN (-1)))
 
   -- Toggle the status bar gap.
-  -- TODO: update this binding with avoidStruts, ((modMask, xK_b),
+  , ((modMask, xK_a),
+     sendMessage ToggleStruts)
 
   -- Quit xmonad.
   , ((modMask .|. shiftMask, xK_q),
