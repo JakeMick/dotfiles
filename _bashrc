@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 shopt -s checkwinsize
 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -9,10 +11,10 @@ if [ `id -un` = root ]; then
 fi
 
 xset b off
+# stupid hack for 256 colors
+export TERM=xterm-256color
 
-#source ~/pylove/herp/bin/activate
-source /srv/temp/GZK/pyenv/bin/activate
-
+export PATH="/srv/anaconda/bin:$PATH"
 trap "rm ~/.bash_history" 0
 # user defined alias
 alias ipython='ipython --colors=Linux'

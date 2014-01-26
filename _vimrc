@@ -232,14 +232,14 @@ set incsearch " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme desert
+    colorscheme monokai
     " Remove menu bar
     set guioptions-=m
 
     " Remove toolbar
     set guioptions-=T
 else
-    colorscheme torte
+    colorscheme monokai
 endif
 
 " Paste from clipboard
