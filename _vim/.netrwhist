@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/srv/repos/pelican-plugins/better_figures_and_images'
 let g:netrw_dirhist_2='/home/derp/derp'
 let g:netrw_dirhist_3='/srv/repos/mtg/card'
+let g:netrw_dirhist_4='/srv/repos/gnome-terminal-colors-solarized/colors'

@@ -13,11 +13,11 @@ fi
 xset b off
 # stupid hack for 256 colors
 export TERM=xterm-256color
-
+bash /srv/repos/gnome-terminal-colors-solarized/set_dark.sh
 export PATH="/srv/anaconda/bin:$PATH"
 trap "rm ~/.bash_history" 0
 # user defined alias
-alias ipython='ipython --colors=Linux'
+#alias ipython='ipython --colors=Linux'
 alias cls='clear'
 alias clls='clear; ls'
 alias ll='ls -l'
@@ -35,16 +35,12 @@ alias ipy='nohup ipython qtconsole --pylab=inline  --colors=linux &'
 alias pdbed='java -jar /home/derp/pylove/PDB_Editor_FIX090203.jar'
 alias wes='wesnoth -r 1920x1080'
 alias rpyc='rm *.pyc'
-#alias actsalsa='source ~/salsa/bin/activate'
-#alias pypy_easy_install='/srv/pypy/pypy-1.8/bin/easy_install'
-#alias pypy='/srv/pypy/pypy-1.8/bin/pypy'
 
 alias trans='python /srv/pypy/pypy-dev/pypy/translator/goal/translate.py'
 alias exe='chmod +x'
 alias addalias='vim ~/.bashrc'
 export FREEMOL=/srv/workstuff/pca/freemol-trunk/FREEMOL
 export OPENBLAS_NUM_THREADS=8
-#export PATH=~/pylove/epd-7.3-1-rh5-x86_64/bin:$PATH
 export PATH=~/.cabal/bin:~/.xmonad/bin:/usr/local/cuda/bin:$PATH
 export ATLAS=None
 export LAPACK=/usr/lib/openblas-base/libopenblas.a
