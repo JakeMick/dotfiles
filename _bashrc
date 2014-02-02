@@ -18,6 +18,7 @@ export PATH="/srv/anaconda/bin:$PATH"
 trap "rm ~/.bash_history" 0
 # user defined alias
 #alias ipython='ipython --colors=Linux'
+alias indie='mplayer -playlist /srv/somafm/poptron.pls'
 alias cls='clear'
 alias clls='clear; ls'
 alias ll='ls -l'

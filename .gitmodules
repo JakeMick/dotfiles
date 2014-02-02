@@ -1,3 +1,12 @@
 [submodule "_vim/bundle/fugitive"]
 	path = _vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "_vim/bundle/nerdtree"]
+	path = _vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "_vim/bundle/mustache"]
+	path = _vim/bundle/mustache
+	url = git://github.com/mustache/vim-mode.git
