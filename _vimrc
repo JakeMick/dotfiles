@@ -243,7 +243,7 @@ else
 endif
 
 " Paste from clipboard
-map <leader>p "+p
+set pastetoggle=<F2>
 
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
@@ -286,6 +286,7 @@ let g:pyflakes_use_quickfix = 0
 
 " Go"
 au BufRead,BufNewFile *.go set filetype=go
+au BufWritePost *.go !gofmt -w %
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
