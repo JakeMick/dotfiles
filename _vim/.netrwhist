@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/srv/repos/pelican-plugins/better_figures_and_images'
-let g:netrw_dirhist_2='/home/derp/derp'
-let g:netrw_dirhist_3='/srv/repos/mtg/card'
-let g:netrw_dirhist_4='/srv/repos/gnome-terminal-colors-solarized/colors'
-let g:netrw_dirhist_5='/srv/repos/time/hs_tut'
-let g:netrw_dirhist_6='/srv/repos/time/src/app/controller'
-let g:netrw_dirhist_7='/srv/repos/time/app/controller'
-let g:netrw_dirhist_8='/srv/repos/time/src'
-let g:netrw_dirhist_9='/srv/repos/time/src/forecast/static/css'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/srv/repos/dotfiles'
