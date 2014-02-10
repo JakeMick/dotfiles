@@ -283,10 +283,12 @@ au FileType coffee setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smart
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
+" Automatically format to pep8
+au BufWritePost *.py silent !autopep8 -i %
 
 " Go"
 au BufRead,BufNewFile *.go set filetype=go
-au BufWritePost *.go !gofmt -w %
+au BufWritePost *.go silent !gofmt -w %
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
