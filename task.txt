@@ -1,0 +1,19 @@
++ graymatter
+    - CI
+    - Tests
+    - Convolutional?
+    - Split up models, CLF, Regression?
+
++ Time-Series
+    - ARMA
+
++ Time
+    - NN
+    - Front-end
+    - Use-cases
+    - Bitcoin
+
++ galaxy
+    - NN
+    - spearmint
+    - starcluster
