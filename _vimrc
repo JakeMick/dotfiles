@@ -290,6 +290,12 @@ au BufWritePost *.py silent !autopep8 -i %
 au BufRead,BufNewFile *.go set filetype=go
 au BufWritePost *.go silent !gofmt -w %
 
+" Haskell"
+au BufRead,BufNewFile *.hamlet  setf hamlet
+au BufRead,BufNewFile *.cassius setf cassius
+au BufRead,BufNewFile *.lucius  setf lucius
+au BufRead,BufNewFile *.julius  setf julius
+
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
