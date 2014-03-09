@@ -36,6 +36,8 @@ alias cdan='cd *'
 alias ipy='nohup ipython qtconsole --pylab=inline  --colors=linux &'
 alias rpyc='rm *.pyc'
 alias t='vim /srv/repos/dotfiles/task.txt'
+alias rh='runhaskell'
+
 
 alias exe='chmod +x'
 alias addalias='vim ~/.bashrc'
