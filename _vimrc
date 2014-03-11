@@ -235,9 +235,13 @@ if has("gui_running")
     colorscheme monokai
     " Remove menu bar
     set guioptions-=m
-
+    " Remove the scrollbar
+    set guioptions+=lLrRb
+    set guioptions-=lLrRb
     " Remove toolbar
     set guioptions-=T
+    " Set font
+    set guifont=Source\ Code\ Pro\ Medium\ 10
 else
     colorscheme monokai
 endif
