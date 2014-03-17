@@ -25,6 +25,8 @@ alias indie='mplayer -playlist /srv/somafm/poptron.pls'
 alias folk='mplayer -playlist /srv/somafm/folkfwd.pls'
 alias cliq='mplayer -playlist /srv/somafm/cliqhop.pls'
 alias covers='mplayer -playlist /srv/somafm/covers.pls'
+alias drone='mplayer -playlist /srv/somafm/dronezone.pls'
+
 
 alias cls='clear'
 alias clls='clear; ls'
