@@ -199,6 +199,10 @@ set foldlevel=99 " don't fold by default
 " don't outdent hashes
 inoremap # #
 
+" comment and uncomment bindings
+vmap <leader>cc :s/^/#/<cr>
+vmap <leader>co :s/^#//<cr>
+
 " close preview window automatically when we move around
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif

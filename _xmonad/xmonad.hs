@@ -1,24 +1,21 @@
 -- xmonad config used by Vic Fryzel
 -- Author: Vic Fryzel
 -- http://github.com/vicfryzel/xmonad-config
- 
-import System.IO
-import System.Exit
-import XMonad
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.SetWMName
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders(smartBorders)
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spiral
-import XMonad.Layout.Tabbed
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
+
+import qualified Data.Map                   as M
+import           System.Exit
+import           System.IO
+import           XMonad
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.SetWMName
+import           XMonad.Layout.NoBorders    (smartBorders)
+import           XMonad.Layout.Spacing
+import           XMonad.Layout.Spiral
+import           XMonad.Layout.Tabbed
+import qualified XMonad.StackSet            as W
+import           XMonad.Util.Run            (spawnPipe)
 
 myDefaultGaps = [(15,10,10,10)]
 
@@ -35,7 +32,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- The default number of workspaces (virtual screens) and their names.
 --
 myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
- 
+
 
 ------------------------------------------------------------------------
 -- Window rules
@@ -54,15 +51,9 @@ myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
 myManageHook = composeAll
     [ className =? "Firefox"       --> doShift "2:web"
     , resource  =? "desktop_window" --> doIgnore
-    , className =? "Galculator"     --> doFloat
-    , className =? "Gimp"           --> doFloat
     , className =? "firefox-bin"  --> doShift "2:web"
-    , resource  =? "gpicview"       --> doFloat
     , resource  =? "kdesktop"       --> doIgnore
-    , className =? "MPlayer"        --> doFloat
-    , resource  =? "skype"          --> doFloat
     , className =? "VirtualBox"     --> doShift "4:vm"
-    , className =? "Xchat"          --> doShift "5:media"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
@@ -89,14 +80,14 @@ myLayout = avoidStruts (
     tiled_super_less |||
     Mirror tiled_super_less)
     where
-    tiled = spacing 50 $ Tall nmaster delta ratio  
-    tiled_less = spacing 30 $ Tall nmaster delta ratio  
-    tiled_super_less = spacing 10 $ Tall nmaster delta ratio  
-    -- The default number of windows in the master pane  
+    tiled = spacing 50 $ Tall nmaster delta ratio
+    tiled_less = spacing 30 $ Tall nmaster delta ratio
+    tiled_super_less = spacing 10 $ Tall nmaster delta ratio
+    -- The default number of windows in the master pane
     nmaster = 1
-    -- Default proportion of screen occupied by master pane  
+    -- Default proportion of screen occupied by master pane
     ratio = 1/3
-    -- Percent of screen to increment by when resizing panes  
+    -- Percent of screen to increment by when resizing panes
     delta = 1/100
 ------------------------------------------------------------------------
 -- Colors and borders
@@ -134,7 +125,7 @@ myBorderWidth = 5
 -- "windows key" is usually mod4Mask.
 --
 myModMask = mod4Mask
- 
+
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
   -- Custom key bindings
@@ -257,7 +248,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      restart "xmonad" True)
   ]
   ++
- 
+
   -- mod-[1..9], Switch to workspace N
   -- mod-shift-[1..9], Move client to workspace N
   [((m .|. modMask, k), windows $ f i)
@@ -270,8 +261,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
       | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
- 
- 
+
+
 ------------------------------------------------------------------------
 -- Mouse bindings
 --
@@ -279,24 +270,24 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- True if your focus should follow your mouse cursor.
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
- 
+
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
   [
     -- mod-button1, Set the window to floating mode and move by dragging
     ((modMask, button1),
      (\w -> focus w >> mouseMoveWindow w))
- 
+
     -- mod-button2, Raise the window to the top of the stack
     , ((modMask, button2),
        (\w -> focus w >> windows W.swapMaster))
- 
+
     -- mod-button3, Set the window to floating mode and resize by dragging
     , ((modMask, button3),
        (\w -> focus w >> mouseResizeWindow w))
- 
+
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
   ]
- 
+
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -307,7 +298,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 --
 -- > logHook = dynamicLogDzen
 --
- 
+
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -317,13 +308,13 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 --
 -- By default, do nothing.
 myStartupHook = return ()
- 
+
 
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
+  xmproc <- spawnPipe "~/.cabal/bin/xmobar ~/.xmonad/xmobar.hs"
   xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
@@ -333,14 +324,14 @@ main = do
       , manageHook = manageDocks <+> myManageHook
       , startupHook = setWMName "LG3D"
   }
- 
+
 
 ------------------------------------------------------------------------
 -- Combine it all together
 -- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will 
+-- fields in the default config. Any you don't override, will
 -- use the defaults defined in xmonad/XMonad/Config.hs
--- 
+--
 -- No need to modify this.
 --
 defaults = defaultConfig {
@@ -352,11 +343,11 @@ defaults = defaultConfig {
     workspaces         = myWorkspaces,
     normalBorderColor  = myNormalBorderColor,
     focusedBorderColor = myFocusedBorderColor,
- 
+
     -- key bindings
     keys               = myKeys,
     mouseBindings      = myMouseBindings,
- 
+
     -- hooks, layouts
     layoutHook         = smartBorders $ myLayout,
     manageHook         = myManageHook,

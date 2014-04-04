@@ -5,18 +5,19 @@ shopt -s checkwinsize
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 if [ `id -un` = root ]; then
-   PS1='\[\033[1;31m\]\h:\w\$\[\033[0m\] '
- else
-   PS1='\[\033[1;32m\]\h:\w\$\[\033[0m\] '
+    PS1='\[\033[1;31m\]\h:\w\$\[\033[0m\] '
+else
+    PS1='\[\033[1;32m\]\h:\w\$\[\033[0m\] '
 fi
 
 xset b off
 # stupid hack for 256 colors
-#export TERM=xterm-256color
-#bash /srv/repos/gnome-terminal-colors-solarized/set_dark.sh
+export TERM=xterm-256color
+#bash /srv/repos/gnome-terminal-colors-solarized/set_light.sh
 export PATH="/srv/anaconda/bin:$PATH"
 export PATH="/srv/haskell/bin:$PATH"
 export PATH="~/.cabal/bin:$PATH"
+#export PATH="/srv/repos/.cabal-sandbox/bin:$PATH"
 export PATH="/var/lib/gems/1.8/bin:$PATH"
 export PATH="/usr/local/cuda/bin:$PATH"
 
@@ -53,3 +54,17 @@ export PATH="/usr/local/cuda/bin:$PATH"
 #export LAPACK=/usr/lib/openblas-base/libopenblas.a
 #export BLAS=/usr/lib/openblas-base/libopenblas.a
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib
+
+function ghcs {
+local DIR=$PWD
+local TARGET="cabal.sandbox.config"
+while [ ! -e $DIR/$TARGET -a $DIR != "/" ]; do
+    DIR=$(dirname $DIR)
+done
+if test $DIR != "/"; then
+    local DB=$(sed -ne '/^package-db: */{s///p;q;}' "$DIR/$TARGET")
+    ghc -no-user-package-db -package-db="$DB" "$@"
+else
+    ghc "$@"
+fi
+}
