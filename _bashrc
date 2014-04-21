@@ -13,7 +13,7 @@ fi
 xset b off
 # stupid hack for 256 colors
 export TERM=xterm-256color
-#bash /srv/repos/gnome-terminal-colors-solarized/set_light.sh
+#bash /srv/repos/gnome-terminal-colors-solarized/set_dark.sh
 export PATH="/srv/anaconda/bin:$PATH"
 export PATH="/srv/haskell/bin:$PATH"
 export PATH="~/.cabal/bin:$PATH"
@@ -44,7 +44,7 @@ alias ipy='nohup ipython qtconsole --pylab=inline  --colors=linux &'
 alias rpyc='rm *.pyc'
 alias t='vim /srv/repos/dotfiles/task.txt'
 alias rh='runhaskell'
-
+alias godhs='ghc -O2 -optc-O3 -fexcess-precision -optc-march=native'
 
 alias exe='chmod +x'
 alias addalias='vim ~/.bashrc'
@@ -68,3 +68,60 @@ else
     ghc "$@"
 fi
 }
+
+function internets {
+unsafety_vpn
+nmcli con down ATT304
+nmcli con down "PIA - US East"
+nmcli con up ATT304
+nmcli con up "PIA - US East"
+safety_vpn
+
+}
+
+function unsafety_vpn {
+sudo iptables -F
+sudo iptables -X
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+
+}
+
+function safety_vpn {
+VPN=10.117.1.6
+LAN=192.168.1.0/24
+
+# Delete all existing rules
+sudo iptables -F
+sudo iptables -X
+
+# Disallow everything
+sudo iptables -P OUTPUT DROP
+sudo iptables -P INPUT DROP
+sudo iptables -P FORWARD DROP
+
+#Allow input from LAN and tun0 ONLY
+sudo iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -i tun0 -m conntrack --ctstate NEW -j ACCEPT
+sudo iptables -A INPUT -s $LAN -m conntrack --ctstate NEW -j ACCEPT
+sudo iptables -A INPUT -j DROP
+
+#Allow output from lo and tun0 ONLY
+sudo iptables -A OUTPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+sudo iptables -A OUTPUT -o tun0 -m conntrack --ctstate NEW -j ACCEPT
+sudo iptables -A OUTPUT -d $VPN -m conntrack --ctstate NEW -j ACCEPT
+sudo iptables -A OUTPUT -j DROP
+
+# Allow from local network
+sudo iptables -A OUTPUT -d $LAN -j ACCEPT
+sudo iptables -A OUTPUT -s $LAN -j ACCEPT
+
+# Allow OpenVPN
+sudo iptables -A OUTPUT -p gre -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --dport 1723 -j ACCEPT
+
+}
+

@@ -236,7 +236,7 @@ set incsearch " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme monokai
+    colorscheme solarized 
     " Remove menu bar
     set guioptions-=m
     " Remove the scrollbar
@@ -299,10 +299,13 @@ au BufRead,BufNewFile *.go set filetype=go
 au BufWritePost *.go silent !gofmt -w %
 
 " Haskell"
+au BufEnter *.hs compiler ghc
 au BufRead,BufNewFile *.hamlet  setf hamlet
 au BufRead,BufNewFile *.cassius setf cassius
 au BufRead,BufNewFile *.lucius  setf lucius
 au BufRead,BufNewFile *.julius  setf julius
+let g:ghc="/srv/haskell/bin/ghc"
+let g:haddock_browser="/usr/bin/firefo"
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
