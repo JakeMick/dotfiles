@@ -55,6 +55,10 @@ export PATH="/usr/local/cuda/bin:$PATH"
 #export BLAS=/usr/lib/openblas-base/libopenblas.a
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib
 
+alias ghc-sandbox="ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
+alias ghci-sandbox="ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
+alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
+
 function ghcs {
 local DIR=$PWD
 local TARGET="cabal.sandbox.config"
@@ -71,11 +75,17 @@ fi
 
 function internets {
 unsafety_vpn
-nmcli con down ATT304
-nmcli con down "PIA - US East"
-nmcli con up ATT304
-nmcli con up "PIA - US East"
 safety_vpn
+
+}
+function internets_down {
+nmcli con down id ATT304
+nmcli con down id "PIA - US East"
+}
+
+function internets_up {
+nmcli con up id ATT304
+nmcli con up id "PIA - US East"
 
 }
 
@@ -89,7 +99,7 @@ sudo iptables -P FORWARD ACCEPT
 }
 
 function safety_vpn {
-VPN=10.117.1.6
+VPN=10.192.1.6
 LAN=192.168.1.0/24
 
 # Delete all existing rules
