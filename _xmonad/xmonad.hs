@@ -148,7 +148,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask, xK_v),
      spawn "gvim")
 
-  , ((modMask .|. shiftMask, xK_e),
+  , ((modMask .|. shiftMask, xK_b),
      spawn "emacs")
 
   -- Take a screenshot in select mode.
