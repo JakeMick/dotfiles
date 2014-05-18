@@ -14,7 +14,7 @@ xset b off
 # stupid hack for 256 colors
 export TERM=xterm-256color
 #bash /srv/repos/gnome-terminal-colors-solarized/set_dark.sh
-export PATH="/srv/anaconda/bin:$PATH"
+#export PATH="/srv/anaconda/bin:$PATH"
 export PATH="/srv/haskell/bin:$PATH"
 export PATH="~/.cabal/bin:$PATH"
 #export PATH="/srv/repos/.cabal-sandbox/bin:$PATH"
@@ -99,7 +99,7 @@ sudo iptables -P FORWARD ACCEPT
 }
 
 function safety_vpn {
-VPN=10.192.1.6
+VPN=10.151.1.6
 LAN=192.168.1.0/24
 
 # Delete all existing rules

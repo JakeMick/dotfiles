@@ -236,7 +236,7 @@ set incsearch " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme solarized 
+    colorscheme base16-atelierseaside
     " Remove menu bar
     set guioptions-=m
     " Remove the scrollbar
@@ -245,8 +245,10 @@ if has("gui_running")
     " Remove toolbar
     set guioptions-=T
     " Set font
-    set guifont=Source\ Code\ Pro\ Medium\ 10
+    set guifont=Fira\ Mono\ OT\ 8
 else
+    let base16colorspace=256
+    set t_Co=256
     colorscheme monokai
 endif
 
