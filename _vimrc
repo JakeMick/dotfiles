@@ -110,6 +110,9 @@ map <c-h> <c-w>h
 " happen as if in command mode )
 imap <C-W> <C-O><C-W>
 
+" set current directory to open file
+set autochdir
+
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
