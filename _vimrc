@@ -113,6 +113,9 @@ imap <C-W> <C-O><C-W>
 " set current directory to open file
 set autochdir
 
+" search for makefiles upwards
+:set makeprg=[[\ -f\ Makefile\ ]]\ &&\ make\ \\\|\\\|\ make\ -C\ ..]
+
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
