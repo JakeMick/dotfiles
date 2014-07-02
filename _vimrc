@@ -67,6 +67,8 @@ endfu
 
 nmap <leader>sb :call SplitScroll()<CR>
 
+" Set the shell to bash, so it uses the environmental variables set there
+set shell=bash\ --login
 
 "<CR><C-w>l<C-f>:set scrollbind<CR>
 
@@ -114,7 +116,7 @@ imap <C-W> <C-O><C-W>
 set autochdir
 
 " search for makefiles upwards
-:set makeprg=[[\ -f\ Makefile\ ]]\ &&\ make\ \\\|\\\|\ make\ -C\ ..]
+set makeprg=[[\ -f\ Makefile\ ]]\ &&\ make\ \\\|\\\|\ make\ -C\ ..
 
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
@@ -170,6 +172,9 @@ set grepprg=ack " replace the default grep program with ack
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
+
+" <Ctrl-m> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-m> :nohl<CR><C-m>
 
 " Disable the colorcolumn when switching modes. Make sure this is the
 " first autocmd for the filetype here
@@ -300,7 +305,7 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 " Automatically format to pep8
-au BufWritePost *.py silent !autopep8 -i %
+noremap <F8> :PymodeLintAuto<CR>
 
 " Go"
 au BufRead,BufNewFile *.go set filetype=go
