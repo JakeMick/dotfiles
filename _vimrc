@@ -283,6 +283,14 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " ==========================================================
 au BufRead *.js set makeprg=jslint\ %
 
+" ==========================================================
+" Rust
+" ==========================================================
+set hidden
+let g:racer_cmd = "/srv/repos/racer/bin/racer"
+let $RUST_SRC_PATH="/srv/repos/rust"
+
+
 " Use tab to scroll through autocomplete menus
 "autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
 "autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
